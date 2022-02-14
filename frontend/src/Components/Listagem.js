@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import useFetch from "../Hooks/useFetch";
 import { USER_GET } from "../api";
-import User from "./User";
+import User from "./User/User";
 import "./Listagem.css";
 
 const Listagem = ({ filter }) => {
@@ -24,14 +24,16 @@ const Listagem = ({ filter }) => {
     return (
       <table>
         <thead>
-          <th>Nome</th>
-          <th>CPF</th>
-          <th>Primeira Dose - Vacina</th>
-          <th>Primeira Dose - Data</th>
-          <th>Segunda Dose - Vacina</th>
-          <th>Segunda Dose - Data</th>
-          <th>Reforço - Vacina</th>
-          <th>Reforço - Data</th>
+          <tr>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Primeira Dose - Vacina</th>
+            <th>Primeira Dose - Data</th>
+            <th>Segunda Dose - Vacina</th>
+            <th>Segunda Dose - Data</th>
+            <th>Reforço - Vacina</th>
+            <th>Reforço - Data</th>
+          </tr>
         </thead>
 
         <tbody>
