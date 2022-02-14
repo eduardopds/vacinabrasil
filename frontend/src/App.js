@@ -1,12 +1,16 @@
 import "./App.css";
 import Listagem from "./Components/Listagem";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from "react";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <Listagem filter="default" />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path={"/"} element={<Listagem filter="default" />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;

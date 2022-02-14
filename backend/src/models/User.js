@@ -22,15 +22,27 @@ class User extends Model {
           },
           unique: true,
         },
-        vaccine: {
+        first_dose_vaccine: {
           type: DataTypes.STRING,
           allowNull: true,
         },
-        first_dose: {
+        first_dose_date: {
           type: DataTypes.DATE,
           allowNull: true,
         },
-        second_dose: {
+        second_dose_vaccine: {
+          type: DataTypes.STRING,
+          allowNull: true,
+        },
+        second_dose_date: {
+          type: DataTypes.DATE,
+          allowNull: true,
+        },
+        third_dose_vaccine: {
+          type: DataTypes.STRING,
+          allowNull: true,
+        },
+        third_dose_date: {
           type: DataTypes.DATE,
           allowNull: true,
         },

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import useFetch from "../Hooks/useFetch";
 import { USER_GET } from "../api";
 import User from "./User";
+import "./Listagem.css";
 
 const Listagem = ({ filter }) => {
   // o filtro aplicado a listagem
@@ -21,11 +22,24 @@ const Listagem = ({ filter }) => {
 
   if (data)
     return (
-      <ul>
-        {data.map((user) => (
-          <User key={user.id} user={user} />
-        ))}
-      </ul>
+      <table>
+        <thead>
+          <th>Nome</th>
+          <th>CPF</th>
+          <th>Primeira Dose - Vacina</th>
+          <th>Primeira Dose - Data</th>
+          <th>Segunda Dose - Vacina</th>
+          <th>Segunda Dose - Data</th>
+          <th>Reforço - Vacina</th>
+          <th>Reforço - Data</th>
+        </thead>
+
+        <tbody>
+          {data.map((user) => (
+            <User key={user.id} user={user} />
+          ))}
+        </tbody>
+      </table>
     );
   else return null;
 };
