@@ -27,15 +27,16 @@ class User extends Model {
           allowNull: true,
         },
         first_dose_date: {
-          type: DataTypes.DATE,
+          type: DataTypes.DATEONLY,
           allowNull: true,
         },
+
         second_dose_vaccine: {
           type: DataTypes.STRING,
           allowNull: true,
         },
         second_dose_date: {
-          type: DataTypes.DATE,
+          type: DataTypes.DATEONLY,
           allowNull: true,
         },
         third_dose_vaccine: {
@@ -43,7 +44,7 @@ class User extends Model {
           allowNull: true,
         },
         third_dose_date: {
-          type: DataTypes.DATE,
+          type: DataTypes.DATEONLY,
           allowNull: true,
         },
       },
