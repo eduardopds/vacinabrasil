@@ -27,10 +27,10 @@ const Listagem = ({ filter }) => {
           <tr>
             <th>Nome</th>
             <th>CPF</th>
-            <th>Primeira Dose - Vacina</th>
-            <th>Primeira Dose - Data</th>
-            <th>Segunda Dose - Vacina</th>
-            <th>Segunda Dose - Data</th>
+            <th>D1 - Vacina</th>
+            <th>D1 - Data</th>
+            <th>D2 - Vacina</th>
+            <th>D2 - Data</th>
             <th>Reforço - Vacina</th>
             <th>Reforço - Data</th>
           </tr>

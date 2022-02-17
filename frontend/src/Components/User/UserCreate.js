@@ -5,7 +5,7 @@ import useFetch from "../../Hooks/useFetch";
 import Input from "../Forms/Input";
 import Button from "../Forms/Button";
 import { useNavigate } from "react-router-dom";
-import { dateToUSA } from "../../dataUtil";
+import { dateToUSA, maskCPF, maskDate } from "../../util";
 
 import { USER_POST } from "../../api";
 
@@ -45,30 +45,41 @@ const UserCreate = () => {
       <h1 className="title">Cadastro</h1>
       <form onSubmit={handleSubmit}>
         <Input label="Nome" type="text" name="nome" {...name} />
-        <Input label="CPF" type="text" name="cpf" {...cpf} />
         <Input
-          label="Primeira Dose - Vacina"
+          label="CPF"
+          mask={maskCPF}
+          type="text"
+          name="cpf"
+          maxLength="14"
+          {...cpf}
+        />
+        <Input
+          label="D1 - Vacina"
           type="text"
           name="primeiradosevacina"
           {...firstDoseVaccine}
         />
         <Input
-          label="Primeira Dose - Data"
+          label="D1 - Data"
           type="text"
           name="primeiradosedata"
+          maxLength="10"
+          mask={maskDate}
           {...firstDoseDate}
         />
 
         <Input
-          label="Segunda Dose - Vacina"
+          label="D2 - Vacina"
           type="text"
           name="segundadosevacina"
           {...secondDoseVaccine}
         />
         <Input
-          label="Segunda Dose - Data"
+          label="D2 - Data"
           type="text"
           name="segundadosedata"
+          maxLength="10"
+          mask={maskDate}
           {...secondDoseDate}
         />
 
@@ -82,6 +93,8 @@ const UserCreate = () => {
           label="Reforço - Data"
           type="text"
           name="reforcodata"
+          maxLength="10"
+          mask={maskDate}
           {...thirdDoseDate}
         />
 

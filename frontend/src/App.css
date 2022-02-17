@@ -84,13 +84,13 @@ a {
   position: absolute;
   bottom: 5px;
   left: -5px;
-  border-radius: 0.2rem;
+  border-radius: 0.6rem;
   z-index: -1;
 }
 
 .App {
   display: grid;
-  grid-template-rows: 5rem 1fr 7rem;
+  grid-template-rows: 6rem 1fr 5rem;
   min-height: 100vh;
   grid-template-areas:
     "header"

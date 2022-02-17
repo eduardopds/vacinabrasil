@@ -1,6 +1,6 @@
 import React from "react";
 import "./User.css";
-import { dateToBrazil } from "../../dataUtil";
+import { dateToBrazil } from "../../util";
 
 const User = ({ user }) => {
   return (
