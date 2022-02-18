@@ -5,6 +5,7 @@ import React from "react";
 import UserCreate from "./Components/User/UserCreate";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
+import UserUpdate from "./Components/User/UserUpdate";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
           <Routes>
             <Route path={"/"} element={<Listagem filter="default" />} />
             <Route path={"/cadastro"} element={<UserCreate></UserCreate>} />
+            <Route path={"/edicao/:id"} element={<UserUpdate></UserUpdate>} />
           </Routes>
         </main>
         <Footer />

@@ -1,14 +1,13 @@
-import React, { useState } from "react";
-import "./UserCreate.css";
+import React, { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { USER_GET_ID, USER_PUT } from "../../api";
 import useFetch from "../../Hooks/useFetch";
+import { dateToUSA, dateToBrazil, maskCPF, maskDate } from "../../util";
 import Input from "../Forms/Input";
 import Button from "../Forms/Button";
-import { useNavigate } from "react-router-dom";
-import { dateToUSA, maskCPF, maskDate } from "../../util";
 
-import { USER_POST } from "../../api";
-
-const UserCreate = () => {
+const UserUpdate = () => {
+  const { id } = useParams();
   const [user, setUser] = useState({
     name: "",
     cpf: "",
@@ -24,10 +23,30 @@ const UserCreate = () => {
 
   const { loading, request } = useFetch();
 
+  useEffect(() => {
+    async function fetchUser() {
+      const { url, options } = USER_GET_ID(id);
+      const { json } = await request(url, options);
+
+      setUser({
+        name: json.name,
+        cpf: json.cpf,
+        firstDoseVaccine: json.first_dose_vaccine,
+        firstDoseDate: dateToBrazil(json.first_dose_date),
+        secondDoseVaccine: json.second_dose_vaccine,
+        secondDoseDate: dateToBrazil(json.second_dose_date),
+        thirdDoseVaccine: json.third_dose_vaccine,
+        thirdDoseDate: dateToBrazil(json.third_dose_date),
+      });
+    }
+
+    fetchUser();
+  }, [request, id]);
+
   async function handleSubmit(event) {
     event.preventDefault();
 
-    const { url, options } = USER_POST({
+    const { url, options } = USER_PUT(id, {
       name: user.name,
       cpf: user.cpf,
       first_dose_vaccine: user.firstDoseVaccine,
@@ -41,7 +60,6 @@ const UserCreate = () => {
 
     if (response.ok) navigate("/");
   }
-
   function handleInputChange(e) {
     const target = e.target;
     const value = target.value;
@@ -52,7 +70,7 @@ const UserCreate = () => {
 
   return (
     <section className="animeLeft container">
-      <h1 className="title">Cadastro</h1>
+      <h1 className="title">Atualizar</h1>
       <form onSubmit={handleSubmit}>
         <Input
           label="Nome"
@@ -122,9 +140,9 @@ const UserCreate = () => {
         />
 
         {loading ? (
-          <Button disabled>Cadastrando...</Button>
+          <Button disabled>Atualizando...</Button>
         ) : (
-          <Button>Cadastrar</Button>
+          <Button>Atualizar</Button>
         )}
         {/* Criar componente <Error error={error} /> */}
       </form>
@@ -132,4 +150,4 @@ const UserCreate = () => {
   );
 };
 
-export default UserCreate;
+export default UserUpdate;

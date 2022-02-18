@@ -15,3 +15,14 @@ exports.delete = async (user) => {
 exports.post = async (user) => {
   return User.create(user);
 };
+
+exports.put = async (fields, id) => {
+  user = await User.findByPk(id);
+
+  if (user === null) {
+    return user;
+  } else {
+    await user.update(fields);
+    return await user.save();
+  }
+};

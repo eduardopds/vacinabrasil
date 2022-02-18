@@ -30,3 +30,16 @@ export function USER_POST(body) {
     },
   };
 }
+
+export function USER_PUT(id, body) {
+  return {
+    url: `${API_URL}/users/${id}`,
+    options: {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    },
+  };
+}

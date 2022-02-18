@@ -38,3 +38,19 @@ exports.getById = (req, res, next) => {
       res.status(400).json(e);
     });
 };
+
+exports.put = async (req, res, next) => {
+  const id = req.params.id;
+  repository
+    .put(req.body, id)
+    .then((user) => {
+      if (user == null) {
+        res.status(404).json({ error: "Usuário não existe" });
+      } else {
+        res.status(200).json(user);
+      }
+    })
+    .catch((e) => {
+      res.status(500).json({ erro: e });
+    });
+};

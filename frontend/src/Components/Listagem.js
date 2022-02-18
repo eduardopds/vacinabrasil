@@ -8,13 +8,12 @@ const Listagem = ({ filter }) => {
   // o filtro aplicado a listagem
   console.log(filter);
 
-  const { data, loading, error, request } = useFetch();
+  const { data, request } = useFetch();
 
   useEffect(() => {
     async function fetchUsers() {
       const { url, options } = USER_GET();
-      const { response, json } = await request(url, options);
-      console.log(json);
+      await request(url, options);
     }
 
     fetchUsers();
