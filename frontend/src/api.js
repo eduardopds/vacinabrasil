@@ -43,3 +43,12 @@ export function USER_PUT(id, body) {
     },
   };
 }
+
+export function USER_DELETE(id) {
+  return {
+    url: `${API_URL}/users/${id}`,
+    options: {
+      method: "DELETE",
+    },
+  };
+}

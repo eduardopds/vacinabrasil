@@ -1,9 +1,17 @@
 export function dateToBrazil(date) {
-  return date.substring(0, 10).split("-").reverse().join("/");
+  if (date) {
+    return date.substring(0, 10).split("-").reverse().join("/");
+  } else {
+    return date;
+  }
 }
 
 export function dateToUSA(date) {
-  return date.split("/").reverse().join("-");
+  if (date) {
+    return date.split("/").reverse().join("-");
+  } else {
+    return date;
+  }
 }
 
 export function maskCPF(value) {
@@ -16,8 +24,10 @@ export function maskCPF(value) {
 }
 
 export function maskDate(value) {
-  if (value.length === 2 || value.length === 5) {
-    value += "/";
-  }
-  return value;
+  if (value) {
+    if (value.length === 2 || value.length === 5) {
+      value += "/";
+    }
+    return value;
+  } else return null;
 }

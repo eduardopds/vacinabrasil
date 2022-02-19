@@ -54,3 +54,20 @@ exports.put = async (req, res, next) => {
       res.status(500).json({ erro: e });
     });
 };
+
+exports.delete = async (req, res, next) => {
+  const user = await repository.getById(req.params.id);
+
+  if (user == null) {
+    res.status(404).json({ error: "Usuário não existe" });
+  } else {
+    repository
+      .delete(user)
+      .then(() => {
+        res.status(204).json({});
+      })
+      .catch((e) => {
+        res.status(500).json({ erro: e });
+      });
+  }
+};

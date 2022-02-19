@@ -32,6 +32,7 @@ const Listagem = ({ filter }) => {
             <th>D2 - Data</th>
             <th>Reforço - Vacina</th>
             <th>Reforço - Data</th>
+            <th>Ações</th>
           </tr>
         </thead>
 

@@ -1,8 +1,26 @@
 import React from "react";
-import "./User.css";
 import { dateToBrazil } from "../../util";
+import { Link } from "react-router-dom";
+import styles from "./User.module.css";
+import { ReactComponent as Delete } from "../../Assets/delete.svg";
+import { ReactComponent as Edit } from "../../Assets/edit.svg";
+import { USER_DELETE } from "../../api";
+import useFetch from "../../Hooks/useFetch";
 
 const User = ({ user }) => {
+  const { request } = useFetch();
+
+  async function handleClick() {
+    const confirm = window.confirm(
+      `Tem certeza que deseja deletar o usuário DE CPF: ${user.cpf} ? `
+    );
+    if (confirm) {
+      const { url, options } = USER_DELETE(user.id);
+      const { response } = await request(url, options);
+      if (response.ok) window.location.reload();
+    }
+  }
+
   return (
     <tr key={user.id}>
       <td>{user.name}</td>
@@ -15,6 +33,14 @@ const User = ({ user }) => {
       </td>
       <td>{user.third_dose_vaccine ? user.third_dose_vaccine : "-"}</td>
       <td>{user.third_dose_date ? dateToBrazil(user.third_dose_date) : "-"}</td>
+      <td className={styles.actions}>
+        <Link className={styles.edit} to={`/edicao/${user.id}`}>
+          <Edit />
+        </Link>
+        <button className={styles.delete} onClick={handleClick}>
+          <Delete />
+        </button>
+      </td>
     </tr>
   );
 };

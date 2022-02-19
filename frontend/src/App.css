@@ -115,3 +115,17 @@ Footer {
 .VictoryContainer {
   height: initial !important;
 }
+
+td {
+  padding: 0.5em;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+
+thead tr th {
+  text-align: center;
+}
+
+tr:hover {
+  background-color: #eee;
+}
