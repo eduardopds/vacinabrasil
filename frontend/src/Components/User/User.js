@@ -12,7 +12,7 @@ const User = ({ user }) => {
 
   async function handleClick() {
     const confirm = window.confirm(
-      `Tem certeza que deseja deletar o usuário DE CPF: ${user.cpf} ? `
+      `Tem certeza que deseja deletar o usuário de CPF: ${user.cpf} ? `
     );
     if (confirm) {
       const { url, options } = USER_DELETE(user.id);
@@ -34,10 +34,18 @@ const User = ({ user }) => {
       <td>{user.third_dose_vaccine ? user.third_dose_vaccine : "-"}</td>
       <td>{user.third_dose_date ? dateToBrazil(user.third_dose_date) : "-"}</td>
       <td className={styles.actions}>
-        <Link className={styles.edit} to={`/edicao/${user.id}`}>
+        <Link
+          data-testid="edit-link"
+          className={styles.edit}
+          to={`/edicao/${user.id}`}
+        >
           <Edit />
         </Link>
-        <button className={styles.delete} onClick={handleClick}>
+        <button
+          data-testid="delete-button"
+          className={styles.delete}
+          onClick={handleClick}
+        >
           <Delete />
         </button>
       </td>
