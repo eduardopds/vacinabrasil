@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { USER_GET_ID, USER_PUT } from "../../api";
-import useFetch from "../../Hooks/useFetch";
-import { dateToUSA, dateToBrazil, maskCPF, maskDate } from "../../util";
-import Input from "../Forms/Input";
-import Button from "../Forms/Button";
+import React, { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { USER_GET_ID, USER_PUT } from '../../../api';
+import useFetch from '../../../Hooks/useFetch';
+import { dateToUSA, dateToBrazil, maskCPF, maskDate } from '../../../util';
+import Input from '../../Forms/Input/Input';
+import Button from '../../Forms/Button/Button';
 
 const UserUpdate = () => {
   const { id } = useParams();
   const [user, setUser] = useState({
-    name: "",
-    cpf: "",
-    firstDoseVaccine: "",
-    firstDoseDate: "",
-    secondDoseVaccine: "",
-    secondDoseDate: "",
-    thirdDoseVaccine: "",
-    thirdDoseDate: "",
+    name: '',
+    cpf: '',
+    firstDoseVaccine: '',
+    firstDoseDate: '',
+    secondDoseVaccine: '',
+    secondDoseDate: '',
+    thirdDoseVaccine: '',
+    thirdDoseDate: '',
   });
 
   const navigate = useNavigate();
@@ -58,7 +58,7 @@ const UserUpdate = () => {
     });
     const { response } = await request(url, options);
 
-    if (response.ok) navigate("/");
+    if (response.ok) navigate('/');
   }
   function handleInputChange(e) {
     const target = e.target;
@@ -69,71 +69,71 @@ const UserUpdate = () => {
   }
 
   return (
-    <section className="animeLeft container">
-      <h1 className="title">Atualizar</h1>
+    <section className='animeLeft container'>
+      <h1 className='title'>Atualizar</h1>
       <form onSubmit={handleSubmit}>
         <Input
-          label="Nome"
-          type="text"
-          name="name"
+          label='Nome'
+          type='text'
+          name='name'
           value={user.name}
           onChange={handleInputChange}
         />
         <Input
-          label="CPF"
+          label='CPF'
           mask={maskCPF}
-          type="text"
-          name="cpf"
-          maxLength="14"
+          type='text'
+          name='cpf'
+          maxLength='14'
           value={user.cpf}
           onChange={handleInputChange}
         />
         <Input
-          label="D1 - Vacina"
-          type="text"
-          name="firstDoseVaccine"
+          label='D1 - Vacina'
+          type='text'
+          name='firstDoseVaccine'
           value={user.firstDoseVaccine}
           onChange={handleInputChange}
         />
         <Input
-          label="D1 - Data"
-          type="text"
-          name="firstDoseDate"
-          maxLength="10"
+          label='D1 - Data'
+          type='text'
+          name='firstDoseDate'
+          maxLength='10'
           mask={maskDate}
           value={user.firstDoseDate}
           onChange={handleInputChange}
         />
 
         <Input
-          label="D2 - Vacina"
-          type="text"
-          name="secondDoseVaccine"
+          label='D2 - Vacina'
+          type='text'
+          name='secondDoseVaccine'
           value={user.secondDoseVaccine}
           onChange={handleInputChange}
         />
         <Input
-          label="D2 - Data"
-          type="text"
-          name="secondDoseDate"
-          maxLength="10"
+          label='D2 - Data'
+          type='text'
+          name='secondDoseDate'
+          maxLength='10'
           mask={maskDate}
           value={user.secondDoseDate}
           onChange={handleInputChange}
         />
 
         <Input
-          label="Reforço - Vacina"
-          type="text"
-          name="thirdDoseVaccine"
+          label='Reforço - Vacina'
+          type='text'
+          name='thirdDoseVaccine'
           value={user.thirdDoseVaccine}
           onChange={handleInputChange}
         />
         <Input
-          label="Reforço - Data"
-          type="text"
-          name="thirdDoseDate"
-          maxLength="10"
+          label='Reforço - Data'
+          type='text'
+          name='thirdDoseDate'
+          maxLength='10'
           value={user.thirdDoseDate}
           mask={maskDate}
           onChange={handleInputChange}
