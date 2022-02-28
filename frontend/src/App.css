@@ -4,9 +4,8 @@
 
 body {
   margin: 0px;
-  color: #333;
   --type-first: Helvetica, Arial, sans-serif;
-  --type-second: "Spectral", georgia;
+  --type-second: 'Spectral', georgia;
   font-family: var(--type-first);
 }
 
@@ -76,7 +75,7 @@ a {
 }
 
 .title::after {
-  content: "";
+  content: '';
   display: block;
   width: 1.5rem;
   height: 1.5rem;
@@ -90,17 +89,12 @@ a {
 
 .App {
   display: grid;
-  grid-template-rows: 6rem 1fr 5rem;
+  grid-template-rows: 5rem 1fr 5rem;
   min-height: 100vh;
   grid-template-areas:
-    "header"
-    "content"
-    "footer";
-}
-
-.AppBody {
-  grid-area: content;
-  min-height: 100%;
+    'header'
+    'content'
+    'footer';
 }
 
 Header {
@@ -112,17 +106,9 @@ Footer {
   grid-area: footer;
 }
 
-.VictoryContainer {
-  height: initial !important;
-}
-
 td {
   padding: 0.5em;
   border-bottom: 1px solid #ccc;
-  text-align: center;
-}
-
-thead tr th {
   text-align: center;
 }
 

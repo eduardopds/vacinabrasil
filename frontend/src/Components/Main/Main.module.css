@@ -1,0 +1,4 @@
+.appBody {
+  grid-area: content;
+  min-height: 100%;
+}
