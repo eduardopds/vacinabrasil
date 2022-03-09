@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { USER_GET_ID, USER_PUT } from '../../../api';
 import useFetch from '../../../Hooks/useFetch';
-import { dateToUSA, dateToBrazil, maskCPF, maskDate } from '../../../util';
+import { maskCPF } from '../../../util';
 import Input from '../../Forms/Input/Input';
 import Button from '../../Forms/Button/Button';
 
@@ -32,11 +32,11 @@ const UserUpdate = () => {
         name: json.name,
         cpf: json.cpf,
         firstDoseVaccine: json.first_dose_vaccine,
-        firstDoseDate: dateToBrazil(json.first_dose_date),
+        firstDoseDate: json.first_dose_date,
         secondDoseVaccine: json.second_dose_vaccine,
-        secondDoseDate: dateToBrazil(json.second_dose_date),
+        secondDoseDate: json.second_dose_date,
         thirdDoseVaccine: json.third_dose_vaccine,
-        thirdDoseDate: dateToBrazil(json.third_dose_date),
+        thirdDoseDate: json.third_dose_date,
       });
     }
 
@@ -50,11 +50,11 @@ const UserUpdate = () => {
       name: user.name,
       cpf: user.cpf,
       first_dose_vaccine: user.firstDoseVaccine,
-      first_dose_date: dateToUSA(user.firstDoseDate),
+      first_dose_date: user.firstDoseDate,
       second_dose_vaccine: user.secondDoseVaccine,
-      second_dose_date: dateToUSA(user.secondDoseDate),
+      second_dose_date: user.secondDoseDate,
       third_dose_vaccine: user.thirdDoseVaccine,
-      third_dose_date: dateToUSA(user.thirdDoseDate),
+      third_dose_date: user.thirdDoseDate,
     });
     const { response } = await request(url, options);
 
@@ -97,10 +97,8 @@ const UserUpdate = () => {
         />
         <Input
           label='D1 - Data'
-          type='text'
+          type='date'
           name='firstDoseDate'
-          maxLength='10'
-          mask={maskDate}
           value={user.firstDoseDate}
           onChange={handleInputChange}
         />
@@ -114,10 +112,8 @@ const UserUpdate = () => {
         />
         <Input
           label='D2 - Data'
-          type='text'
+          type='date'
           name='secondDoseDate'
-          maxLength='10'
-          mask={maskDate}
           value={user.secondDoseDate}
           onChange={handleInputChange}
         />
@@ -131,11 +127,9 @@ const UserUpdate = () => {
         />
         <Input
           label='Reforço - Data'
-          type='text'
+          type='date'
           name='thirdDoseDate'
-          maxLength='10'
           value={user.thirdDoseDate}
-          mask={maskDate}
           onChange={handleInputChange}
         />
 

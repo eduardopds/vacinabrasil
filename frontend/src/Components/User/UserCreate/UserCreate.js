@@ -4,7 +4,7 @@ import useFetch from '../../../Hooks/useFetch';
 import Input from '../../Forms/Input/Input';
 import Button from '../../Forms/Button/Button';
 import { useNavigate } from 'react-router-dom';
-import { dateToUSA, maskCPF, maskDate } from '../../../util';
+import { maskCPF } from '../../../util';
 
 import { USER_POST } from '../../../api';
 
@@ -31,11 +31,11 @@ const UserCreate = () => {
       name: user.name,
       cpf: user.cpf,
       first_dose_vaccine: user.firstDoseVaccine,
-      first_dose_date: dateToUSA(user.firstDoseDate),
+      first_dose_date: user.firstDoseDate,
       second_dose_vaccine: user.secondDoseVaccine,
-      second_dose_date: dateToUSA(user.secondDoseDate),
+      second_dose_date: user.secondDoseDate,
       third_dose_vaccine: user.thirdDoseVaccine,
-      third_dose_date: dateToUSA(user.thirdDoseDate),
+      third_dose_date: user.thirdDoseDate,
     });
     const { response } = await request(url, options);
 
@@ -79,10 +79,8 @@ const UserCreate = () => {
         />
         <Input
           label='D1 - Data'
-          type='text'
+          type='date'
           name='firstDoseDate'
-          maxLength='10'
-          mask={maskDate}
           value={user.firstDoseDate}
           onChange={handleInputChange}
         />
@@ -96,10 +94,8 @@ const UserCreate = () => {
         />
         <Input
           label='D2 - Data'
-          type='text'
+          type='date'
           name='secondDoseDate'
-          maxLength='10'
-          mask={maskDate}
           value={user.secondDoseDate}
           onChange={handleInputChange}
         />
@@ -113,11 +109,9 @@ const UserCreate = () => {
         />
         <Input
           label='Reforço - Data'
-          type='text'
+          type='date'
           name='thirdDoseDate'
-          maxLength='10'
           value={user.thirdDoseDate}
-          mask={maskDate}
           onChange={handleInputChange}
         />
 

@@ -5,15 +5,6 @@ export function dateToBrazil(date) {
     return date;
   }
 }
-
-export function dateToUSA(date) {
-  if (date) {
-    return date.split('/').reverse().join('-');
-  } else {
-    return date;
-  }
-}
-
 export function maskCPF(value) {
   if (value) {
     if (value.length === 3 || value.length === 7) {
@@ -23,14 +14,5 @@ export function maskCPF(value) {
     }
   }
 
-  return value;
-}
-
-export function maskDate(value) {
-  if (value) {
-    if (value.length === 2 || value.length === 5) {
-      value += '/';
-    }
-  }
   return value;
 }

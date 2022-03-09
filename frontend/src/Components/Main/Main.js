@@ -14,7 +14,7 @@ const Main = () => {
     <main className={styles.appBody} style={{ background: background }}>
       <p>{themeContext.nome}</p>
       <Routes>
-        <Route path={'/'} element={<Listagem filter='default' />} />
+        <Route path={'/'} element={<Listagem />} />
         <Route path={'/cadastro'} element={<UserCreate></UserCreate>} />
         <Route path={'/edicao/:id'} element={<UserUpdate></UserUpdate>} />
       </Routes>
