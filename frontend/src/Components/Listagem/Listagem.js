@@ -7,8 +7,14 @@ import Loading from '../Helper/Loading/Loading';
 import Search from '../Search/Search';
 
 const Listagem = () => {
+  const options = [
+    { value: 'name', label: 'Nome' },
+    { value: 'cpf', label: 'CPF' },
+  ];
+
   const { data, request, loading } = useFetch();
   const [busca, setBusca] = useState('');
+  const [field, setField] = useState(options[0]);
 
   useEffect(() => {
     async function fetchUsers() {
@@ -26,11 +32,20 @@ const Listagem = () => {
     setBusca(value);
   }
 
+  function handleFieldChange(selected) {
+    setField(selected);
+  }
+
   return loading ? (
     <Loading></Loading>
   ) : (
     <>
-      <Search onChange={handleInputChange} />
+      <Search
+        onChange={handleInputChange}
+        onChangeField={handleFieldChange}
+        field={field}
+        options={options}
+      />
       <table>
         <thead>
           <tr>
@@ -49,7 +64,9 @@ const Listagem = () => {
           {data &&
             data
               .filter((item) =>
-                item.name.toLowerCase().includes(busca.toLowerCase())
+                item[`${field.value}`]
+                  .toLowerCase()
+                  .includes(busca.toLowerCase())
               )
               .map((user) => <User key={user.id} user={user} />)}
         </tbody>
