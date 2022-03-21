@@ -1,24 +1,27 @@
-"use strict";
+'use strict';
 
 // require("dotenv-safe").config({ path: ".env" });
-const express = require("express");
-const bodyParser = require("body-parser");
-const cors = require("cors");
+const express = require('express');
+const bodyParser = require('body-parser');
+const morganBody = require('morgan-body');
+const cors = require('cors');
 const app = express();
-const sequelize = require("../src/database/index");
+const sequelize = require('../src/database/index');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
 // Carrega rotas
-const indexRoutes = require("./routes/index");
-const userRoutes = require("./routes/userRoutes");
+const indexRoutes = require('./routes/index');
+const userRoutes = require('./routes/userRoutes');
 
-app.use("/", indexRoutes);
-app.use("/users", userRoutes);
+morganBody(app);
 
-const User = require("./models/User");
+app.use('/', indexRoutes);
+app.use('/users', userRoutes);
+
+const User = require('./models/User');
 // const Exercise = require("./models/Exercise");
 // const Day = require("./models/Day");
 

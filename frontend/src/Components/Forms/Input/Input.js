@@ -11,6 +11,7 @@ const Input = ({
   error,
   onBlur,
   mask,
+  pattern,
 }) => {
   return (
     <div className={styles.wrapper}>
@@ -26,6 +27,7 @@ const Input = ({
         onChange={onChange}
         onBlur={onBlur}
         maxLength={maxLength}
+        pattern={pattern}
       />
       {error && <p className={styles.error}>{error}</p>}
     </div>

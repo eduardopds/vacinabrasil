@@ -11,11 +11,15 @@
   margin-left: 10px;
 }
 
+.filter p {
+  margin-bottom: 5px;
+}
+
 .container {
   width: 40%;
 }
 .input {
-  margin-top: 10px;
+  margin-top: 15px;
   height: 40px;
   border: 1px solid #eee;
   display: block;

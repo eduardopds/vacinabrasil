@@ -1,6 +1,6 @@
 export function dateToBrazil(date) {
   if (date) {
-    return date.substring(0, 10).split('-').reverse().join('/');
+    return date.split('-').reverse().join('/');
   } else {
     return date;
   }

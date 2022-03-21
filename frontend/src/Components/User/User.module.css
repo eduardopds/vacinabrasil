@@ -5,12 +5,12 @@
 }
 
 .actions {
-  height: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   flex-direction: row;
-  max-height: none;
+  align-items: center;
+  min-height: 100%;
 }
 
 .delete {

@@ -33,21 +33,23 @@ const User = ({ user }) => {
       </td>
       <td>{user.third_dose_vaccine ? user.third_dose_vaccine : '-'}</td>
       <td>{user.third_dose_date ? dateToBrazil(user.third_dose_date) : '-'}</td>
-      <td className={styles.actions}>
-        <Link
-          data-testid='edit-link'
-          className={styles.edit}
-          to={`/edicao/${user.id}`}
-        >
-          <Edit />
-        </Link>
-        <button
-          data-testid='delete-button'
-          className={styles.delete}
-          onClick={handleClick}
-        >
-          <Delete />
-        </button>
+      <td>
+        <div className={styles.actions}>
+          <Link
+            data-testid='edit-link'
+            className={styles.edit}
+            to={`/edicao/${user.id}`}
+          >
+            <Edit />
+          </Link>
+          <button
+            data-testid='delete-button'
+            className={styles.delete}
+            onClick={handleClick}
+          >
+            <Delete />
+          </button>
+        </div>
       </td>
     </tr>
   );

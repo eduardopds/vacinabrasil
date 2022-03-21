@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import useFetch from '../../Hooks/useFetch';
 import { USER_GET } from '../../api';
 import User from '../User/User';
-import './Listagem.css';
+import './Listing.css';
 import Loading from '../Helper/Loading/Loading';
 import Search from '../Search/Search';
 
-const Listagem = () => {
+const Listing = () => {
   const options = [
     { value: 'name', label: 'Nome' },
     { value: 'cpf', label: 'CPF' },
@@ -51,12 +51,12 @@ const Listagem = () => {
           <tr>
             <th>Nome</th>
             <th>CPF</th>
-            <th>D1 - Vacina</th>
-            <th>D1 - Data</th>
-            <th>D2 - Vacina</th>
-            <th>D2 - Data</th>
-            <th>Reforço - Vacina</th>
-            <th>Reforço - Data</th>
+            <th>D1 · Vacina</th>
+            <th>D1 · Data</th>
+            <th>D2 · Vacina</th>
+            <th>D2 · Data</th>
+            <th>Reforço · Vacina</th>
+            <th>Reforço · Data</th>
             <th>Ações</th>
           </tr>
         </thead>
@@ -75,4 +75,4 @@ const Listagem = () => {
   );
 };
 
-export default Listagem;
+export default Listing;

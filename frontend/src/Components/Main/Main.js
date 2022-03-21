@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Listagem from '../Listagem/Listagem';
+import Listing from '../Listing/Listing';
 import UserCreate from '../User/UserCreate/UserCreate';
 import UserUpdate from '../User/UserUpdate/UserUpdate';
 import { ThemeContext } from '../../ThemeContext';
@@ -12,9 +12,8 @@ const Main = () => {
 
   return (
     <main className={styles.appBody} style={{ background: background }}>
-      <p>{themeContext.nome}</p>
       <Routes>
-        <Route path={'/'} element={<Listagem />} />
+        <Route path={'/'} element={<Listing />} />
         <Route path={'/cadastro'} element={<UserCreate></UserCreate>} />
         <Route path={'/edicao/:id'} element={<UserUpdate></UserUpdate>} />
       </Routes>
