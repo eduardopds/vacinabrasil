@@ -12,6 +12,7 @@
     "react-router-dom": "^6.2.1",
     "react-scripts": "^3.0.1",
     "react-select": "^5.2.2",
+    "victory": "^36.3.1",
     "web-vitals": "^2.1.2"
   },
   "scripts": {

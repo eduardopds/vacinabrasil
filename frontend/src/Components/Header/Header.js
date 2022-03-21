@@ -3,9 +3,9 @@ import { Link, useLocation } from 'react-router-dom';
 import styles from './Header.module.css';
 import { ReactComponent as Add } from '../../Assets/add.svg';
 import { ReactComponent as Vaccine } from '../../Assets/vaccine.svg';
-
 import { ThemeContext } from '../../ThemeContext';
 import Toggle from '../Toogle/Toggle';
+import { ReactComponent as StatsSVG } from '../../Assets/estatisticas.svg';
 
 const Header = () => {
   const themeContext = useContext(ThemeContext);
@@ -13,7 +13,6 @@ const Header = () => {
   const { pathname } = useLocation();
   const [toggled, setToggled] = React.useState(false);
 
-  console.log(pathname);
   const handleClick = () => {
     setToggled((s) => !s);
     themeContext.toggleTheme();
@@ -34,6 +33,12 @@ const Header = () => {
               <Add />
             </Link>
           )}
+          {pathname !== '/estatisticas' && (
+            <Link className={styles.statsButton} to='/estatisticas'>
+              <StatsSVG /> Estatísticas
+            </Link>
+          )}
+
           <Toggle onClick={handleClick} toggled={toggled} />
         </div>
       </nav>

@@ -15,11 +15,13 @@ app.use(cors());
 // Carrega rotas
 const indexRoutes = require('./routes/index');
 const userRoutes = require('./routes/userRoutes');
+const statsRoutes = require('./routes/statsRoutes');
 
 morganBody(app);
 
 app.use('/', indexRoutes);
 app.use('/users', userRoutes);
+app.use('/stats', statsRoutes);
 
 const User = require('./models/User');
 // const Exercise = require("./models/Exercise");

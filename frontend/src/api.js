@@ -52,3 +52,12 @@ export function USER_DELETE(id) {
     },
   };
 }
+
+export function GET_STATS() {
+  return {
+    url: API_URL + '/stats',
+    options: {
+      method: 'GET',
+    },
+  };
+}
