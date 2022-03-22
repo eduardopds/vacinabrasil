@@ -12,7 +12,7 @@ O Vacina Brasil é uma aplicação web para gerenciar o processo de vacinação 
 - Busca por nome e CPF dos usuários
 - Cadastro de usuários
 - Alteração de cadastro e atualização da vacina
-- Fornecimento de estastísticas
+- Fornecimento de estatísticas
 
 ## VacinaBrasil API
 
