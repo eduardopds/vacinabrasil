@@ -11,7 +11,7 @@ const Input = ({
   error,
   onBlur,
   mask,
-  pattern,
+  placeholder,
 }) => {
   return (
     <div className={styles.wrapper}>
@@ -23,11 +23,11 @@ const Input = ({
         name={name}
         className={styles.input}
         type={type}
-        value={mask ? mask(value) : value}
+        value={value}
         onChange={onChange}
         onBlur={onBlur}
         maxLength={maxLength}
-        pattern={pattern}
+        placeholder={placeholder}
       />
       {error && <p className={styles.error}>{error}</p>}
     </div>

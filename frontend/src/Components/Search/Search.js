@@ -14,8 +14,8 @@ const Search = ({ onChange, onChangeField, options }) => {
         />
       </div>
       <div className={styles.container}>
-        <label className={styles.label} htmlFor=''></label>
         <input
+          id='search'
           className={styles.input}
           placeholder='Digite o valor a ser pesquisado'
           onChange={onChange}

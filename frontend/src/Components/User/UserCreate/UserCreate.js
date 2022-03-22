@@ -4,8 +4,6 @@ import useFetch from '../../../Hooks/useFetch';
 import Input from '../../Forms/Input/Input';
 import Button from '../../Forms/Button/Button';
 import { useNavigate } from 'react-router-dom';
-import { maskCPF } from '../../../util';
-
 import { USER_POST } from '../../../api';
 
 const UserCreate = () => {
@@ -63,12 +61,12 @@ const UserCreate = () => {
         />
         <Input
           label='CPF'
-          mask={maskCPF}
           type='text'
           name='cpf'
           maxLength='14'
           value={user.cpf}
           onChange={handleInputChange}
+          placeholder='000.000.000-00'
         />
         <Input
           label='D1 - Vacina'

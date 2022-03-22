@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { USER_GET_ID, USER_PUT } from '../../../api';
 import useFetch from '../../../Hooks/useFetch';
-import { maskCPF } from '../../../util';
 import Input from '../../Forms/Input/Input';
 import Button from '../../Forms/Button/Button';
 
@@ -81,11 +80,11 @@ const UserUpdate = () => {
         />
         <Input
           label='CPF'
-          mask={maskCPF}
           type='text'
           name='cpf'
           maxLength='14'
           value={user.cpf}
+          placeholder='000.000.000-00'
           onChange={handleInputChange}
         />
         <Input

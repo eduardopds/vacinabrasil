@@ -16,6 +16,7 @@
   display: flex;
   width: 30%;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .logo {
@@ -43,5 +44,15 @@
   align-items: center;
   margin-right: 20px;
   cursor: pointer;
-  border-radius: 0.4rem;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  padding: 2px 5px 2px 2px;
+  background-color: #f08652;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.statsButton a:focus,
+a:hover {
+  text-decoration: none;
 }

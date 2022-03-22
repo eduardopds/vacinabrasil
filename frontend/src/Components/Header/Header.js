@@ -35,7 +35,8 @@ const Header = () => {
           )}
           {pathname !== '/estatisticas' && (
             <Link className={styles.statsButton} to='/estatisticas'>
-              <StatsSVG /> Estatísticas
+              <StatsSVG />
+              Estatísticas
             </Link>
           )}
 
