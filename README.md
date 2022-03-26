@@ -19,13 +19,22 @@ O Vacina Brasil é uma aplicação web para gerenciar o processo de vacinação 
 Você pode instalar as dependências usando `yarn`. Execute:
 
 ```
-$ yarn install
+yarn install
+```
+
+A API utiliza um banco de dados `mysql`. É necessário configurar um arquivo `.env` com as seguintes informações (Exemplo):
+
+```
+PORT=3500
+BD_PASSWORD=root
+BD_URL=localhost
+BD_PORT=3306
 ```
 
 Para iniciar a aplicação:
 
 ```
-$ yarn start
+yarn start
 ```
 
 As requisições devem seguir os padrões:
@@ -72,19 +81,19 @@ As requisições devem seguir os padrões:
 O site também utiliza `yarn`. Execute:
 
 ```
-$ yarn install
+yarn install
 ```
 
 Para iniciar a aplicação:
 
 ```
-$ yarn start
+yarn start
 ```
 
 Para executar os testes:
 
 ```
-$ yarn test
+yarn test
 ```
 ### Páginas
 
